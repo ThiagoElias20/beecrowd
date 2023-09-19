@@ -6,30 +6,25 @@ public class Main {
   public static void main(String[] args) {
     Scanner ler = new Scanner(System.in);
 
-    int turistasNoParque = 0;
-    int jipesNoParque = 0;
-
+    Parque parq = new Parque(0, 0);
+    
     while (true) {
       String voltasai = ler.next();
+
       if (voltasai.equals("ABEND")) {
         break;
       }
 
       int T = ler.nextInt();
 
-      if (voltasai.equals("SALIDA")) {
-        turistasNoParque += T;
-        jipesNoParque++;
-      } else if (voltasai.equals("VUELTA")) {
-        turistasNoParque -= T;
-        jipesNoParque--;
-      }
+      Jipe jipe = new Jipe(voltasai, T);
+
+      parq.registrar(jipe);
+
     }
 
-    System.out.println(turistasNoParque);
-    System.out.println(jipesNoParque);
+    System.out.println(parq.GetPessoas());
+    System.out.println(parq.GetJipes());
     ler.close();
   }
 }
-
-//DEIXAR EM POO
